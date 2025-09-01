@@ -1,0 +1,674 @@
+{% extends 'home/base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- NAVBAR -->
+<div class="navbar-hover-zone"></div>
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top shadow-lg" style="background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(20px);">
+  <div class="container">
+    <a class="navbar-brand fw-bold brand-jump fs-3" href="#" style="background: linear-gradient(45deg, #667eea, #764ba2, #f093fb); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+      {% for letter in profile.name %}
+        <span style="text-shadow: 0 0 20px rgba(255,255,255,0.3);">{{ letter }}</span>
+      {% endfor %}
+    </a>
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+            style="box-shadow: 0 0 20px rgba(102, 126, 234, 0.3);">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse justify-content-end brand-jump" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item mx-1">
+          <a class="nav-link px-3 py-2 rounded-pill position-relative overflow-hidden" href="#welcome" 
+             style="transition: all 0.3s ease; background: rgba(255,255,255,0.1);">
+            <span style="position: relative; z-index: 2;">Home</span>
+          </a>
+        </li>
+        <li class="nav-item mx-1">
+          <a class="nav-link px-3 py-2 rounded-pill position-relative overflow-hidden" href="#hero"
+             style="transition: all 0.3s ease; background: rgba(255,255,255,0.1);">
+            <span style="position: relative; z-index: 2;">Me</span>
+          </a>
+        </li>
+        <li class="nav-item mx-1">
+          <a class="nav-link px-3 py-2 rounded-pill position-relative overflow-hidden" href="#about"
+             style="transition: all 0.3s ease; background: rgba(255,255,255,0.1);">
+            <span style="position: relative; z-index: 2;">About</span>
+          </a>
+        </li>
+        <li class="nav-item mx-1">
+          <a class="nav-link px-3 py-2 rounded-pill position-relative overflow-hidden" href="#projects"
+             style="transition: all 0.3s ease; background: rgba(255,255,255,0.1);">
+            <span style="position: relative; z-index: 2;">Projects</span>
+          </a>
+        </li>
+        <li class="nav-item mx-1">
+          <a class="nav-link px-3 py-2 rounded-pill position-relative overflow-hidden" href="#skills"
+             style="transition: all 0.3s ease; background: rgba(255,255,255,0.1);">
+            <span style="position: relative; z-index: 2;">Skills</span>
+          </a>
+        </li>
+        <li class="nav-item mx-1">
+          <a class="nav-link px-3 py-2 rounded-pill position-relative overflow-hidden" href="#education"
+             style="transition: all 0.3s ease; background: rgba(255,255,255,0.1);">
+            <span style="position: relative; z-index: 2;">Education</span>
+          </a>
+        </li>
+        <li class="nav-item mx-1">
+          <a class="nav-link px-3 py-2 rounded-pill position-relative overflow-hidden" href="#contact"
+             style="transition: all 0.3s ease; background: rgba(255,255,255,0.1);">
+            <span style="position: relative; z-index: 2;">Contact</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- WELCOME SPLASH SECTION -->
+<section class="welcome-section text-center position-relative overflow-hidden" id="welcome">
+  <!-- Floating geometric shapes -->
+  <div class="position-absolute top-0 start-0 w-100 h-100" style="z-index: 1;">
+    <div style="position: absolute; top: 20%; left: 10%; width: 100px; height: 100px; background: rgba(255,255,255,0.1); border-radius: 50%; animation: float 6s ease-in-out infinite;"></div>
+    <div style="position: absolute; top: 60%; right: 15%; width: 80px; height: 80px; background: rgba(255,255,255,0.1); transform: rotate(45deg); animation: float 8s ease-in-out infinite reverse;"></div>
+    <div style="position: absolute; bottom: 30%; left: 20%; width: 60px; height: 60px; background: rgba(255,255,255,0.1); clip-path: polygon(50% 0%, 0% 100%, 100% 100%); animation: float 7s ease-in-out infinite;"></div>
+  </div>
+  
+  <div class="welcome-main position-relative" style="z-index: 2;">
+    <div class="mb-4">
+      <div class="d-inline-block p-3 rounded-circle mb-3" style="background: rgba(255,255,255,0.2); backdrop-filter: blur(10px);">
+        <i class="fas fa-hand-wave text-white fs-1" style="animation: wave 2s ease-in-out infinite;"></i>
+      </div>
+    </div>
+    <h2 class="fw-semibold display-4 brand-jump mb-4" style="text-shadow: 0 0 40px rgba(255,255,255,0.5);">
+      <span>H</span><span>e</span><span>l</span><span>l</span><span>o</span><span>,</span>
+      <span>H</span><span>i</span>
+      <span>t</span><span>h</span><span>e</span><span>r</span><span>e</span><span>!</span>
+    </h2>
+    <h1 class="fw-bold display-5 mt-3 brand-jump" style="text-shadow: 0 0 40px rgba(255,255,255,0.5);">
+      <span>W</span><span>e</span><span>l</span><span>c</span><span>o</span><span>m</span><span>e</span>
+      <span>t</span><span>o</span>
+      <span>m</span><span>y</span>
+      <span>p</span><span>o</span><span>r</span><span>t</span><span>f</span><span>o</span><span>l</span><span>i</span><span>o</span><span>.</span>
+    </h1>
+  </div>
+  <div class="position-relative" style="z-index: 2;">
+    <p class="lead scroll-text fs-4 mt-4" style="color: black;">
+      ✨ Scroll down to explore more ✨
+    </p>
+    <a href="#hero" class="scroll-down mt-3 d-inline-block p-3 rounded-circle" 
+       style="background: rgba(255,255,255,0.2); backdrop-filter: blur(10px); transition: all 0.3s ease;">
+      <i class="fas fa-chevron-down fa-2x text-black"></i>
+    </a>
+  </div>
+</section>
+
+<!-- HERO -->
+<div class="hero-section container py-5 text-center jump-direction position-relative overflow-hidden" id="hero">
+  <!-- Decorative elements -->
+  <div class="position-absolute top-0 start-0 w-100 h-100" style="z-index: 1;">
+    <div style="position: absolute; top: 15%; right: 10%; width: 120px; height: 120px; background: rgba(255,255,255,0.1); border-radius: 50%; animation: pulse 4s ease-in-out infinite;"></div>
+    <div style="position: absolute; bottom: 20%; left: 8%; width: 80px; height: 80px; background: rgba(255,255,255,0.1); transform: rotate(45deg); animation: spin 20s linear infinite;"></div>
+  </div>
+  
+  <div class="position-relative" style="z-index: 2;">
+   <div class="mb-4 position-relative d-inline-block">
+  <img src="{{ profile.profile_image.url }}" alt="Profile" class="profile-img mb-4 shadow-lg"
+       style="width: 200px; height: 200px; border-radius: 50%; border: 4px solid rgba(255,255,255,0.9); box-shadow: 0 0 50px rgba(255,255,255,0.3); object-fit: cover;">
+  <!-- Glowing ring effect -->
+  <div class="position-absolute top-50 start-50 translate-middle rounded-circle" 
+       style="width: 200px; height: 200px; border: 2px solid rgba(255,255,255,0.3); animation: pulse 3s ease-in-out infinite; z-index: -1;"></div>
+</div>
+
+    <h1 class="fw-bold mb-3 fs-1" style="text-shadow: 0 0 30px rgba(255,255,255,0.4);">{{ profile.name }}</h1>
+    <div class="mb-4">
+      <p class="lead brand-jump fs-3 mb-0" style="background: linear-gradient(45deg, rgba(255,255,255,0.9), rgba(255,255,255,0.7)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+        {{ profile.role }}
+      </p>
+      <div class="mt-2" style="width: 100px; height: 3px; background: linear-gradient(45deg, #667eea, #764ba2); margin: 0 auto; border-radius: 2px;"></div>
+    </div>
+    <div class="social-links mt-4">
+      <a href="mailto:{{ profile.email }}" class="btn btn-outline-light rounded-pill mx-2 px-4 py-2 position-relative overflow-hidden" 
+         style="border: 2px solid rgba(255,255,255,0.3); backdrop-filter: blur(10px); transition: all 0.3s ease;">
+        <i class="fas fa-envelope me-2"></i>Email
+      </a>
+      <a href="{{ profile.github }}" target="_blank" class="btn btn-outline-light rounded-pill mx-2 px-4 py-2 position-relative overflow-hidden"
+         style="border: 2px solid rgba(255,255,255,0.3); backdrop-filter: blur(10px); transition: all 0.3s ease;">
+        <i class="fab fa-github me-2"></i>GitHub
+      </a>
+      <a href="{{ profile.linkedin }}" target="_blank" class="btn btn-outline-light rounded-pill mx-2 px-4 py-2 position-relative overflow-hidden"
+         style="border: 2px solid rgba(255,255,255,0.3); backdrop-filter: blur(10px); transition: all 0.3s ease;">
+        <i class="fab fa-linkedin me-2"></i>LinkedIn
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<div class="container my-5 py-5" id="about">
+  <div class="row align-items-center">
+    <div class="col-md-5 text-center mb-5 mb-md-0" data-aos="fade-right">
+      <div class="position-relative d-inline-block">
+        <img src="{{ profile.profile_image.url }}" alt="{{ profile.name }}"
+          class="img-fluid rounded-4 shadow-lg jump-direction about-img" 
+          style="max-width: 320px; border: 3px solid rgba(102, 126, 234, 0.3);">
+        <!-- Decorative frame -->
+        <div class="position-absolute top-0 start-0 w-100 h-100 rounded-4 border border-2" 
+             style="border-color: rgba(102, 126, 234, 0.2) !important; transform: translate(10px, 10px); z-index: -1;"></div>
+      </div>
+    </div>
+    <div class="col-md-7" data-aos="fade-left">
+      <div class="p-4 rounded-4 shadow-lg" style="background: rgba(255,255,255,0.95); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.2);">
+        <h2 class="fw-bold mb-4 brand-jump">
+          <i class="fas fa-user-circle me-3" style="color: #667eea;"></i>About Me
+        </h2>
+        <div class="position-relative">
+          <p class="text-muted lh-lg fs-6" style="text-align: justify;">{{ profile.about|linebreaks }}</p>
+        </div>
+        
+        <div class="row mt-4 g-3">
+          <div class="col-sm-6">
+            <div class="p-3 rounded-3 h-100" style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1)); border-left: 4px solid #667eea;">
+              <div class="d-flex align-items-center">
+                <div class="p-2 rounded-circle me-3" style="background: rgba(102, 126, 234, 0.2);">
+                  <i class="fas fa-map-marker-alt text-primary"></i>
+                </div>
+                <div>
+                  <strong class="d-block fw-semibold">Location</strong>
+                  <span class="text-muted small">{{ profile.location }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="p-3 rounded-3 h-100" style="background: linear-gradient(135deg, rgba(118, 75, 162, 0.1), rgba(240, 147, 251, 0.1)); border-left: 4px solid #764ba2;">
+              <div class="d-flex align-items-center">
+                <div class="p-2 rounded-circle me-3" style="background: rgba(118, 75, 162, 0.2);">
+                  <i class="fas fa-language text-primary"></i>
+                </div>
+                <div>
+                  <strong class="d-block fw-semibold">Languages</strong>
+                  <span class="text-muted small">{{ profile.languages }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="text-center mt-4">
+          <a href="{{ profile.resume.url }}" class="btn btn-lg px-5 py-3 rounded-pill position-relative overflow-hidden" 
+             style="background: linear-gradient(45deg, #667eea, #764ba2); border: none; box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4); transition: all 0.3s ease;" download>
+            <i class="fas fa-download me-2"></i>
+            <span class="fw-semibold">Download Resume</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PROJECTS -->
+<div class="projects-section container my-5 py-5" id="projects">
+  <div class="text-center mb-5">
+    <h2 class="fw-bold brand-jump display-5">
+      <i class="fas fa-code me-3" style="color: #667eea;"></i>My Projects
+    </h2>
+    <div class="mx-auto mt-3" style="width: 120px; height: 4px; background: linear-gradient(45deg, #667eea, #764ba2); border-radius: 2px;"></div>
+  </div>
+  
+  <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4">
+    {% for project in projects %}
+    <div class="col">
+      <div class="card h-100 shadow-lg about-img position-relative overflow-hidden border-0" 
+           style="background: rgba(255,255,255,0.95); backdrop-filter: blur(20px); border-radius: 24px;">
+        {% if project.image %}
+          <div class="position-relative overflow-hidden" style="border-radius: 24px 24px 0 0;">
+            <img src="{{ project.image.url }}" class="card-img-top" alt="{{ project.title }}" 
+                 style="height: 220px; object-fit: cover; transition: transform 0.4s ease;">
+            <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center" 
+                 style="background: linear-gradient(45deg, rgba(102, 126, 234, 0.8), rgba(118, 75, 162, 0.8)); opacity: 0; transition: all 0.4s ease;">
+              <i class="fas fa-search-plus text-white fs-2"></i>
+            </div>
+            <!-- Project type badge -->
+            <div class="position-absolute top-0 end-0 m-3">
+              <span class="badge rounded-pill px-3 py-2" style="background: rgba(255,255,255,0.9); color: #667eea; backdrop-filter: blur(10px);">
+                <i class="fas fa-star me-1"></i>Featured
+              </span>
+            </div>
+          </div>
+        {% endif %}
+
+        <div class="card-body p-4">
+          <div class="d-flex align-items-start mb-3">
+            <div class="p-2 rounded-circle me-3 flex-shrink-0" style="background: linear-gradient(45deg, #667eea, #764ba2);">
+              <i class="fas fa-project-diagram text-white fs-6"></i>
+            </div>
+            <div>
+              <h5 class="card-title fw-bold mb-2 lh-base">{{ project.title }}</h5>
+            </div>
+          </div>
+          <p class="card-text text-muted lh-base small">{{ project.description }}</p>
+          {% if project.tech_list %}
+            <div class="mb-3">
+              {% for tech in project.tech_list %}
+                <span class="badge me-1 mb-2 px-3 py-2 rounded-pill" 
+                      style="background: linear-gradient(45deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1)); color: #667eea; border: 1px solid rgba(102, 126, 234, 0.2);">
+                  {{ tech }}
+                </span>
+              {% endfor %}
+            </div>
+          {% endif %}
+        </div>
+        <div class="card-footer bg-transparent border-0 p-4 pt-0">
+          <div class="d-flex gap-2">
+            {% if project.github_link %}
+              <a href="{{ project.github_link }}" class="btn btn-outline-dark btn-sm flex-fill rounded-pill py-2" 
+                 style="border: 2px solid rgba(0,0,0,0.1); transition: all 0.3s ease;">
+                <i class="fab fa-github me-2"></i>GitHub
+              </a>
+            {% endif %}
+            {% if project.live_link %}
+              <a href="{{ project.live_link }}" class="btn btn-sm flex-fill rounded-pill py-2" 
+                 style="background: linear-gradient(45deg, #667eea, #764ba2); border: none; color: white; transition: all 0.3s ease;">
+                <i class="fas fa-external-link-alt me-2"></i>Live Demo
+              </a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+<!-- SKILLS -->
+<div class="skills-section container my-5 py-5" id="skills">
+  <div class="text-center mb-5">
+    <h2 class="fw-bold brand-jump display-5">
+      <i class="fas fa-tools me-3" style="color: #667eea;"></i>Technical Skills
+    </h2>
+    <div class="mx-auto mt-3" style="width: 120px; height: 4px; background: linear-gradient(45deg, #667eea, #764ba2); border-radius: 2px;"></div>
+    <p class="text-muted mt-3 fs-6">Technologies I work with</p>
+  </div>
+  
+  <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-4 text-center">
+    {% for skill in skills %}
+    <div class="col">
+      <div class="p-4 border-0 rounded-4 shadow-lg about-img jump-direction h-100 d-flex flex-column justify-content-center position-relative overflow-hidden" 
+           style="background: rgba(255,255,255,0.95); backdrop-filter: blur(20px); min-height: 140px; border: 1px solid rgba(255,255,255,0.2);">
+        <!-- Skill level indicator (decorative) -->
+        <div class="position-absolute top-0 start-0 w-100" style="height: 3px; background: linear-gradient(45deg, #667eea, #764ba2, #f093fb);"></div>
+        
+        <div class="mb-3">
+          <div class="d-inline-block p-3 rounded-circle" style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));">
+            <i class="{{ skill.icon }} fa-2x" style="background: linear-gradient(45deg, #667eea, #764ba2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;"></i>
+          </div>
+        </div>
+        <h6 class="mb-0 fw-semibold">{{ skill.name }}</h6>
+        <!-- Skill progress bar (decorative) -->
+        <div class="mt-2 mx-auto" style="width: 60%; height: 2px; background: rgba(102, 126, 234, 0.2); border-radius: 1px;">
+          <div style="width: 85%; height: 100%; background: linear-gradient(45deg, #667eea, #764ba2); border-radius: 1px; animation: fillBar 2s ease-out;"></div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+<!-- EDUCATION -->
+<div class="container my-5 py-5" id="education">
+  <div class="text-center mb-5">
+    <h2 class="fw-bold brand-jump display-5">
+      <i class="fas fa-graduation-cap me-3" style="color: #667eea;"></i>Education & Certifications
+    </h2>
+    <div class="mx-auto mt-3" style="width: 120px; height: 4px; background: linear-gradient(45deg, #667eea, #764ba2); border-radius: 2px;"></div>
+  </div>
+  
+  <div class="row justify-content-center">
+    {% for edu in education %}
+    <div class="col-md-6 col-lg-5 mb-4">
+      <div class="card border-0 shadow-lg about-img jump-direction h-100 position-relative overflow-hidden" 
+           style="background: rgba(255,255,255,0.95); backdrop-filter: blur(20px); border-radius: 20px;">
+        <!-- Top accent line -->
+        <div class="position-absolute top-0 start-0 w-100" style="height: 4px; background: linear-gradient(45deg, #667eea, #764ba2, #f093fb);"></div>
+        
+        <div class="card-body p-4">
+          <div class="d-flex align-items-start">
+            <div class="me-3 flex-shrink-0">
+              <div class="p-3 rounded-circle" style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.2), rgba(118, 75, 162, 0.2));">
+                <i class="fas fa-certificate fs-4" style="color: #667eea;"></i>
+              </div>
+            </div>
+            <div class="flex-grow-1">
+              <h5 class="card-title fw-bold mb-2 lh-base">{{ edu.title }}</h5>
+              <div class="mb-2">
+                <h6 class="text-primary mb-1 fw-semibold">{{ edu.institution }}</h6>
+                <p class="card-text text-muted small mb-2 lh-base">{{ edu.details }}</p>
+              </div>
+              <div class="d-flex align-items-center">
+                <i class="fas fa-calendar-alt me-2" style="color: #667eea;"></i>
+                <span class="badge rounded-pill px-3 py-2" style="background: linear-gradient(45deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1)); color: #667eea;">
+                  {{ edu.status }}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div class="container my-5 py-5" id="contact">
+  <div class="text-center mb-5">
+    <h2 class="fw-bold brand-jump display-5">
+      <i class="fas fa-paper-plane me-3" style="color: #667eea;"></i>Contact Me
+    </h2>
+    <div class="mx-auto mt-3" style="width: 120px; height: 4px; background: linear-gradient(45deg, #667eea, #764ba2); border-radius: 2px;"></div>
+    <p class="text-muted mt-3 fs-6">Let's connect and build something amazing together!</p>
+  </div>
+  
+  <div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+      <div class="card border-0 shadow-lg p-4 about-img jump-direction position-relative overflow-hidden" 
+           style="background: rgba(255,255,255,0.95); backdrop-filter: blur(20px); border-radius: 24px;">
+        <!-- Top accent -->
+        <div class="position-absolute top-0 start-0 w-100" style="height: 4px; background: linear-gradient(45deg, #667eea, #764ba2, #f093fb);"></div>
+        
+        <form id="contact-form" class="mt-3">
+          <div class="mb-4">
+            <label for="name" class="form-label fw-semibold d-flex align-items-center">
+              <i class="fas fa-user me-2" style="color: #667eea;"></i>Your Name
+            </label>
+            <input type="text" class="form-control form-control-lg rounded-pill px-4" id="name" name="name" required
+                   placeholder="Enter your full name" 
+                   style="border: 2px solid rgba(102, 126, 234, 0.2); background: rgba(255,255,255,0.8); transition: all 0.3s ease;">
+          </div>
+          <div class="mb-4">
+            <label for="email" class="form-label fw-semibold d-flex align-items-center">
+              <i class="fas fa-envelope me-2" style="color: #667eea;"></i>Your Email
+            </label>
+            <input type="email" class="form-control form-control-lg rounded-pill px-4" id="email" name="email" required
+                   placeholder="Enter your email address"
+                   style="border: 2px solid rgba(102, 126, 234, 0.2); background: rgba(255,255,255,0.8); transition: all 0.3s ease;">
+          </div>
+          <div class="mb-4">
+            <label for="message" class="form-label fw-semibold d-flex align-items-center">
+              <i class="fas fa-comment me-2" style="color: #667eea;"></i>Your Message
+            </label>
+            <textarea class="form-control form-control-lg px-4 py-3" id="message" name="message" rows="5" required
+                      placeholder="Tell me about your project or just say hello!"
+                      style="border: 2px solid rgba(102, 126, 234, 0.2); background: rgba(255,255,255,0.8); border-radius: 20px; resize: none; transition: all 0.3s ease;"></textarea>
+          </div>
+          <button type="submit" class="btn btn-lg w-100 py-3 rounded-pill fw-semibold position-relative overflow-hidden text-white" 
+        style="background: linear-gradient(45deg, #2d3748, #1a202c); border: none; box-shadow: 0 8px 25px rgba(45, 55, 72, 0.4); transition: all 0.3s ease;">
+  <i class="fas fa-paper-plane me-2"></i>Send Message
+</button>
+
+        </form>
+        
+        <div class="mt-5 pt-4">
+          <div class="text-center mb-4">
+            <h6 class="text-muted fw-semibold">Or reach me directly:</h6>
+            <div style="width: 60px; height: 2px; background: rgba(102, 126, 234, 0.3); margin: 10px auto; border-radius: 1px;"></div>
+          </div>
+          <div class="row text-center g-3">
+            <div class="col-md-4">
+              <a href="mailto:{{ profile.email }}" class="text-decoration-none d-block p-4 rounded-4 h-100 position-relative overflow-hidden" 
+                 style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1)); border: 1px solid rgba(102, 126, 234, 0.2); transition: all 0.3s ease;">
+                <div class="mb-3">
+                  <div class="d-inline-block p-3 rounded-circle" style="background: rgba(102, 126, 234, 0.2);">
+                    <i class="fas fa-envelope fs-4" style="color: #667eea;"></i>
+                  </div>
+                </div>
+                <h6 class="fw-semibold mb-1" style="color: #667eea;">Email Me</h6>
+                <small class="text-muted">Quick response</small>
+              </a>
+            </div>
+            <div class="col-md-4">
+              <a href="tel:{{ profile.phone }}" class="text-decoration-none d-block p-4 rounded-4 h-100 position-relative overflow-hidden"
+                 style="background: linear-gradient(135deg, rgba(118, 75, 162, 0.1), rgba(240, 147, 251, 0.1)); border: 1px solid rgba(118, 75, 162, 0.2); transition: all 0.3s ease;">
+                <div class="mb-3">
+                  <div class="d-inline-block p-3 rounded-circle" style="background: rgba(118, 75, 162, 0.2);">
+                    <i class="fas fa-phone-alt fs-4" style="color: #764ba2;"></i>
+                  </div>
+                </div>
+                <h6 class="fw-semibold mb-1" style="color: #764ba2;">Call Me</h6>
+                <small class="text-muted">{{ profile.phone }}</small>
+              </a>
+            </div>
+            <div class="col-md-4">
+              <a href="{{ profile.linkedin }}" target="_blank" class="text-decoration-none d-block p-4 rounded-4 h-100 position-relative overflow-hidden"
+                 style="background: linear-gradient(135deg, rgba(240, 147, 251, 0.1), rgba(102, 126, 234, 0.1)); border: 1px solid rgba(240, 147, 251, 0.2); transition: all 0.3s ease;">
+                <div class="mb-3">
+                  <div class="d-inline-block p-3 rounded-circle" style="background: rgba(240, 147, 251, 0.2);">
+                    <i class="fab fa-linkedin fs-4" style="color: #f093fb;"></i>
+                  </div>
+                </div>
+                <h6 class="fw-semibold mb-1" style="color: #f093fb;">LinkedIn</h6>
+                <small class="text-muted">Let's connect</small>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FLOATING BACK TO TOP BUTTON -->
+<button class="btn rounded-circle position-fixed bottom-0 end-0 m-4 shadow-lg border-0" 
+        id="backToTop" 
+        style="width: 60px; height: 60px; z-index: 1000; opacity: 0; visibility: hidden; 
+               background: linear-gradient(45deg, #667eea, #764ba2); 
+               transition: all 0.4s ease; backdrop-filter: blur(10px);">
+  <i class="fas fa-arrow-up fs-5 text-white"></i>
+</button>
+
+<!-- ENHANCED FOOTER -->
+<footer class="text-white text-center py-5 position-relative overflow-hidden" 
+        style="background: linear-gradient(135deg, #1a202c 0%, #2d3748 50%, #4a5568 100%);">
+  <!-- Decorative background pattern -->
+  <div class="position-absolute top-0 start-0 w-100 h-100" style="opacity: 0.1;">
+    <div style="background-image: radial-gradient(circle at 25% 25%, white 2px, transparent 2px), radial-gradient(circle at 75% 75%, white 1px, transparent 1px); background-size: 50px 50px, 30px 30px; width: 100%; height: 100%;"></div>
+  </div>
+  
+  <div class="container position-relative" style="z-index: 2;">
+    <div class="row">
+      <div class="col-12">
+        <div class="mb-4">
+          <div class="d-inline-block p-3 rounded-circle mb-3" style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px);">
+            <i class="fas fa-code text-white fs-3"></i>
+          </div>
+        </div>
+        <p class="mb-3 fs-5">
+          <span class="brand-jump fw-bold">
+            <span>&copy;</span> <span>{{ now|date:"Y" }}</span> <span>{{ profile.name }}</span><span>.</span>
+          </span>
+        </p>
+        <p class="mb-4 opacity-75 fs-6">
+          ✨ <em>Built with passion, powered by code</em> ✨
+        </p>
+        
+        <!-- Enhanced social links -->
+        <div class="social-links mt-4">
+          <a href="mailto:{{ profile.email }}" class="mx-3 d-inline-block p-3 rounded-circle position-relative"
+             style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); transition: all 0.3s ease; border: 1px solid rgba(255,255,255,0.2);">
+            <i class="fas fa-envelope fs-5"></i>
+          </a>
+          <a href="{{ profile.github }}" target="_blank" class="mx-3 d-inline-block p-3 rounded-circle position-relative"
+             style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); transition: all 0.3s ease; border: 1px solid rgba(255,255,255,0.2);">
+            <i class="fab fa-github fs-5"></i>
+          </a>
+          <a href="{{ profile.linkedin }}" target="_blank" class="mx-3 d-inline-block p-3 rounded-circle position-relative"
+             style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); transition: all 0.3s ease; border: 1px solid rgba(255,255,255,0.2);">
+            <i class="fab fa-linkedin fs-5"></i>
+          </a>
+        </div>
+        
+        <!-- Scroll to top hint -->
+        <div class="mt-4 pt-3 border-top border-secondary border-opacity-25">
+          <small class="text-light opacity-50">
+            <i class="fas fa-arrow-up me-1"></i>
+            Scroll up to explore more
+          </small>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Enhanced JavaScript for beautiful interactions -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  // Add floating animation keyframes
+  const style = document.createElement('style');
+  style.textContent = `
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+    }
+    @keyframes wave {
+      0%, 100% { transform: rotate(0deg); }
+      25% { transform: rotate(20deg); }
+      75% { transform: rotate(-10deg); }
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 0.7; }
+      50% { transform: scale(1.1); opacity: 1; }
+    }
+    @keyframes fillBar {
+      0% { width: 0%; }
+      100% { width: 85%; }
+    }
+    
+    /* Enhanced hover effects */
+    .nav-link:hover {
+      background: linear-gradient(45deg, rgba(102, 126, 234, 0.3), rgba(118, 75, 162, 0.3)) !important;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+    }
+    
+    .social-links a:hover {
+      background: linear-gradient(45deg, rgba(102, 126, 234, 0.3), rgba(118, 75, 162, 0.3)) !important;
+      transform: translateY(-5px) scale(1.1);
+      box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+    }
+    
+    .form-control:focus {
+      border-color: #667eea !important;
+      box-shadow: 0 0 0 0.25rem rgba(102, 126, 234, 0.25) !important;
+      transform: translateY(-2px);
+      background: rgba(255,255,255,0.95) !important;
+    }
+    
+    .btn:hover {
+      transform: translateY(-3px) scale(1.02);
+    }
+    
+    .projects-section .card:hover img {
+      transform: scale(1.1);
+    }
+    
+    .projects-section .card:hover .position-absolute {
+      opacity: 1 !important;
+    }
+    
+    [style*="rgba(102, 126, 234, 0.1)"]:hover,
+    [style*="rgba(118, 75, 162, 0.1)"]:hover,
+    [style*="rgba(240, 147, 251, 0.1)"]:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 15px 35px rgba(102, 126, 234, 0.3);
+    }
+  `;
+  document.head.appendChild(style);
+  
+  // Back to top functionality
+  const backToTopBtn = document.getElementById('backToTop');
+  if (backToTopBtn) {
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 300) {
+        backToTopBtn.style.opacity = '1';
+        backToTopBtn.style.visibility = 'visible';
+      } else {
+        backToTopBtn.style.opacity = '0';
+        backToTopBtn.style.visibility = 'hidden';
+      }
+    });
+    
+    backToTopBtn.addEventListener('click', function() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+    
+    backToTopBtn.addEventListener('mouseenter', function() {
+      this.style.transform = 'scale(1.1)';
+      this.style.boxShadow = '0 15px 35px rgba(102, 126, 234, 0.5)';
+    });
+    
+    backToTopBtn.addEventListener('mouseleave', function() {
+      this.style.transform = 'scale(1)';
+      this.style.boxShadow = '0 8px 25px rgba(102, 126, 234, 0.4)';
+    });
+  }
+  
+  // Enhanced project card interactions
+  document.querySelectorAll('.projects-section .card').forEach(card => {
+    card.addEventListener('mouseenter', function() {
+      this.style.transform = 'translateY(-15px) scale(1.02)';
+      this.style.boxShadow = '0 25px 50px rgba(102, 126, 234, 0.3)';
+    });
+    
+    card.addEventListener('mouseleave', function() {
+      this.style.transform = 'translateY(0) scale(1)';
+      this.style.boxShadow = '0 8px 32px rgba(31, 38, 135, 0.37)';
+    });
+  });
+  
+  // Skills animation on scroll
+  const skillsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const progressBars = entry.target.querySelectorAll('[style*="fillBar"]');
+        progressBars.forEach(bar => {
+          bar.style.animation = 'fillBar 2s ease-out';
+        });
+      }
+    });
+  }, { threshold: 0.5 });
+  
+  const skillsSection = document.querySelector('.skills-section');
+  if (skillsSection) {
+    skillsObserver.observe(skillsSection);
+  }
+  
+  // Add typing effect to welcome text (optional enhancement)
+  const welcomeText = document.querySelector('.scroll-text');
+  if (welcomeText) {
+    const originalText = welcomeText.textContent;
+    welcomeText.style.borderRight = '2px solid rgba(255,255,255,0.7)';
+    welcomeText.style.animation = 'blink 1s infinite';
+    
+    // Add blink animation
+    const blinkStyle = document.createElement('style');
+    blinkStyle.textContent = `
+      @keyframes blink {
+        0%, 50% { border-right-color: rgba(255,255,255,0.7); }
+        51%, 100% { border-right-color: transparent; }
+      }
+    `;
+    document.head.appendChild(blinkStyle);
+  }
+});
+</script>
+
+
+{% endblock %}
