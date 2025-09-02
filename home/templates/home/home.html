@@ -113,8 +113,13 @@
   
   <div class="position-relative" style="z-index: 2;">
    <div class="mb-4 position-relative d-inline-block">
+    {% if profile.profile_image_url %}
+  <img src="{{ profile.profile_image_url }}" alt="Profile" class="profile-img mb-4 shadow-lg"
+       style="width: 200px; height: 200px; border-radius: 50%; border: 4px solid rgba(255,255,255,0.9); box-shadow: 0 0 50px rgba(255,255,255,0.3); object-fit: cover;">
+{% elif profile.profile_image %}
   <img src="{{ profile.profile_image.url }}" alt="Profile" class="profile-img mb-4 shadow-lg"
        style="width: 200px; height: 200px; border-radius: 50%; border: 4px solid rgba(255,255,255,0.9); box-shadow: 0 0 50px rgba(255,255,255,0.3); object-fit: cover;">
+{% endif %}
   <!-- Glowing ring effect -->
   <div class="position-absolute top-50 start-50 translate-middle rounded-circle" 
        style="width: 200px; height: 200px; border: 2px solid rgba(255,255,255,0.3); animation: pulse 3s ease-in-out infinite; z-index: -1;"></div>
@@ -149,9 +154,16 @@
   <div class="row align-items-center">
     <div class="col-md-5 text-center mb-5 mb-md-0" data-aos="fade-right">
       <div class="position-relative d-inline-block">
-        <img src="{{ profile.profile_image.url }}" alt="{{ profile.name }}"
-          class="img-fluid rounded-4 shadow-lg jump-direction about-img" 
-          style="max-width: 320px; border: 3px solid rgba(102, 126, 234, 0.3);">
+        {% if profile.profile_image_url %}
+    <img src="{{ profile.profile_image_url }}" alt="{{ profile.name }}"
+         class="img-fluid rounded-4 shadow-lg jump-direction about-img"
+         style="max-width: 320px; border: 3px solid rgba(102, 126, 234, 0.3);">
+{% elif profile.profile_image %}
+    <img src="{{ profile.profile_image.url }}" alt="{{ profile.name }}"
+         class="img-fluid rounded-4 shadow-lg jump-direction about-img"
+         style="max-width: 320px; border: 3px solid rgba(102, 126, 234, 0.3);">
+{% endif %}
+
         <!-- Decorative frame -->
         <div class="position-absolute top-0 start-0 w-100 h-100 rounded-4 border border-2" 
              style="border-color: rgba(102, 126, 234, 0.2) !important; transform: translate(10px, 10px); z-index: -1;"></div>
@@ -196,11 +208,17 @@
         </div>
         
         <div class="text-center mt-4">
-          <a href="{{ profile.resume.url }}" class="btn btn-lg px-5 py-3 rounded-pill position-relative overflow-hidden" 
+          {% if profile.resume_url %}
+  <a href="{{ profile.resume_url }}" target="_blank" class="btn btn-lg px-5 py-3 rounded-pill position-relative overflow-hidden" 
              style="background: linear-gradient(45deg, #667eea, #764ba2); border: none; box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4); transition: all 0.3s ease;" download>
-            <i class="fas fa-download me-2"></i>
-            <span class="fw-semibold">Download Resume</span>
-          </a>
+    <i class="fas fa-download me-2"></i><span class="fw-semibold">Download Resume</span>
+  </a>
+{% elif profile.resume %}
+  <a href="{{ profile.resume.url }}" target="_blank" class="btn btn-lg px-5 py-3 rounded-pill position-relative overflow-hidden" 
+             style="background: linear-gradient(45deg, #667eea, #764ba2); border: none; box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4); transition: all 0.3s ease;" download>
+    <i class="fas fa-download me-2"></i><span class="fw-semibold">Download Resume</span>
+  </a>
+{% endif %}
         </div>
       </div>
     </div>
