@@ -13,8 +13,9 @@ def create_superuser(apps, schema_editor):
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('my-portfolio', '0001_initial'),  # change "portfolio" to your app name
-    ]
+    ('home', '0001_initial'),
+]
+
 
     operations = [
         migrations.RunPython(create_superuser),
