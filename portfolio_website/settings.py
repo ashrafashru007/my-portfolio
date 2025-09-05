@@ -20,7 +20,7 @@ SECRET_KEY = config("SECRET_KEY")
 DEBUG = ENV == "development"
 
 # Allowed hosts
-ALLOWED_HOSTS = config("ALLOWED_HOSTS").split(",")
+ALLOWED_HOSTS = config("ALLOWED_HOSTS", default="localhost,127.0.0.1").split(",")
 
 # Cloudinary settings
 CLOUDINARY_STORAGE = {
@@ -77,10 +77,14 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "portfolio_website.wsgi.application"
 
-# Database: Use SQLite for development, PostgreSQL for production
+# Database: PostgreSQL in production, SQLite locally
 if ENV == "production":
     DATABASES = {
-        "default": dj_database_url.config(default=config("DATABASE_URL"))
+        "default": dj_database_url.config(
+            default=config("DATABASE_URL"),
+            conn_max_age=600,
+            ssl_require=True
+        )
     }
 else:
     DATABASES = {
