@@ -1,39 +1,34 @@
-"""
-Django settings for portfolio_website project.
-"""
-
 from pathlib import Path
 import os
 from decouple import config
 import dj_database_url
 
-# Build paths inside the project
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# ENVIRONMENT
-ENV = config("ENV", default="development")
+# ===============================
+# Environment
+# ===============================
+ENV = config("ENV", default="production")
+SECRET_KEY = config("SECRET_KEY", default="your-secret-key")
+DEBUG = config("DEBUG", default=False, cast=bool)
 
-# SECURITY
-SECRET_KEY = config("SECRET_KEY")
+ALLOWED_HOSTS = config("ALLOWED_HOSTS", default="*").split(",")
 
-# Debug only in development
-DEBUG = ENV == "development"
-
-# Allowed hosts
-ALLOWED_HOSTS = config("ALLOWED_HOSTS", default="localhost,127.0.0.1").split(",")
-
-# Cloudinary settings
+# ===============================
+# Cloudinary (media files)
+# ===============================
 CLOUDINARY_STORAGE = {
     "CLOUD_NAME": config("CLOUDINARY_CLOUD_NAME"),
     "API_KEY": config("CLOUDINARY_API_KEY"),
     "API_SECRET": config("CLOUDINARY_API_SECRET"),
-    "FOLDER": "portfolio",  # optional: uploads go inside this folder
+    "FOLDER": "portfolio",
 }
 
-# Default file storage for media uploads
 DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
 
-# Application definition
+# ===============================
+# Installed apps
+# ===============================
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
@@ -41,14 +36,14 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "home",  # your app
+    "home",
     "cloudinary",
     "cloudinary_storage",
 ]
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
-    "whitenoise.middleware.WhiteNoiseMiddleware",  # for static files
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -77,24 +72,20 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "portfolio_website.wsgi.application"
 
-# Database: PostgreSQL in production, SQLite locally
-if ENV == "production":
-    DATABASES = {
-        "default": dj_database_url.config(
-            default=config("DATABASE_URL"),
-            conn_max_age=600,
-            ssl_require=True
-        )
-    }
-else:
-    DATABASES = {
-        "default": {
-            "ENGINE": "django.db.backends.sqlite3",
-            "NAME": BASE_DIR / "db.sqlite3",
-        }
-    }
+# ===============================
+# Database (PostgreSQL on Railway)
+# ===============================
+DATABASES = {
+    "default": dj_database_url.config(
+        default=config("DATABASE_URL"),
+        conn_max_age=600,
+        ssl_require=True
+    )
+}
 
+# ===============================
 # Password validation
+# ===============================
 AUTH_PASSWORD_VALIDATORS = [
     {"NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"},
     {"NAME": "django.contrib.auth.password_validation.MinimumLengthValidator"},
@@ -102,25 +93,31 @@ AUTH_PASSWORD_VALIDATORS = [
     {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator"},
 ]
 
+# ===============================
 # Internationalization
+# ===============================
 LANGUAGE_CODE = "en-us"
 TIME_ZONE = "UTC"
 USE_I18N = True
 USE_TZ = True
 
+# ===============================
 # Static files
+# ===============================
 STATIC_URL = "/static/"
 STATICFILES_DIRS = [BASE_DIR / "static"]
 STATIC_ROOT = BASE_DIR / "staticfiles"
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
-# Media files (Cloudinary)
 MEDIA_URL = "/media/"
 
-# Default primary key field type
+# ===============================
+# Default primary key field
+# ===============================
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-# Optional: Security settings for production
-if ENV == "production":
-    SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
-    CSRF_TRUSTED_ORIGINS = ["https://mohammedashrafbr.onrender.com"]
+# ===============================
+# Security
+# ===============================
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+CSRF_TRUSTED_ORIGINS = [f"https://{host.strip()}" for host in ALLOWED_HOSTS]
