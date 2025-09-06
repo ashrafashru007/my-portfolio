@@ -267,15 +267,18 @@
           </div>
           <p class="card-text text-muted lh-base small">{{ project.description }}</p>
           {% if project.tech_list %}
-            <div class="mb-3">
-              {% for tech in project.tech_list %}
-                <span class="badge me-1 mb-2 px-3 py-2 rounded-pill" 
-                      style="background: linear-gradient(45deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1)); color: #667eea; border: 1px solid rgba(102, 126, 234, 0.2);">
-                  {{ tech }}
-                </span>
-              {% endfor %}
-            </div>
-          {% endif %}
+  <div class="mb-3">
+    {% for tech in project.tech_list %}
+      <span class="badge me-1 mb-2 px-3 py-2 rounded-pill"
+            style="background: linear-gradient(45deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+                   color: #667eea;
+                   border: 1px solid rgba(102, 126, 234, 0.2);">
+        {{ tech }}
+      </span>
+    {% endfor %}
+  </div>
+{% endif %}
+
         </div>
         <div class="card-footer bg-transparent border-0 p-4 pt-0">
           <div class="d-flex gap-2">

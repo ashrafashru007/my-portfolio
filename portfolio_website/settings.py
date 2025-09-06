@@ -1,7 +1,6 @@
 from pathlib import Path
 import os
 from decouple import config
-import dj_database_url
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -11,19 +10,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 ENV = config("ENV", default="production")
 SECRET_KEY = config("SECRET_KEY", default="your-secret-key")
 DEBUG = config("DEBUG", default=False, cast=bool)
-
 ALLOWED_HOSTS = config("ALLOWED_HOSTS", default="*").split(",")
 
 # ===============================
 # Cloudinary (media files)
 # ===============================
 CLOUDINARY_STORAGE = {
-    "CLOUD_NAME": config("CLOUDINARY_CLOUD_NAME"),
-    "API_KEY": config("CLOUDINARY_API_KEY"),
-    "API_SECRET": config("CLOUDINARY_API_SECRET"),
+    "CLOUD_NAME": config("CLOUDINARY_CLOUD_NAME", default=""),
+    "API_KEY": config("CLOUDINARY_API_KEY", default=""),
+    "API_SECRET": config("CLOUDINARY_API_SECRET", default=""),
     "FOLDER": "portfolio",
 }
-
 DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
 
 # ===============================
@@ -73,14 +70,13 @@ TEMPLATES = [
 WSGI_APPLICATION = "portfolio_website.wsgi.application"
 
 # ===============================
-# Database (PostgreSQL on Railway)
+# Database (SQLite for PA free tier)
 # ===============================
 DATABASES = {
-    "default": dj_database_url.config(
-        default=config("DATABASE_URL"),
-        conn_max_age=600,
-        ssl_require=True
-    )
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
+    }
 }
 
 # ===============================
@@ -109,6 +105,7 @@ STATICFILES_DIRS = [BASE_DIR / "static"]
 STATIC_ROOT = BASE_DIR / "staticfiles"
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
+# Media files
 MEDIA_URL = "/media/"
 
 # ===============================
@@ -120,4 +117,10 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # Security
 # ===============================
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
-CSRF_TRUSTED_ORIGINS = [f"https://{host.strip()}" for host in ALLOWED_HOSTS]
+
+# Fix: Render requires full URLs with https://
+CSRF_TRUSTED_ORIGINS = [
+    f"https://{host.strip()}"
+    for host in ALLOWED_HOSTS
+    if host not in ["*", ""]
+]

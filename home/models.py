@@ -51,6 +51,13 @@ class Project(models.Model):
     def __str__(self):
         return self.title
 
+    def tech_list(self):
+        """Return tech stack as a list instead of a raw string."""
+        if self.tech_stack:
+            return [t.strip() for t in self.tech_stack.split(",")]
+        return []
+
+
 # ===============================
 # Education model
 # ===============================
